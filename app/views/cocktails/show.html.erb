@@ -1,9 +1,17 @@
-<h2><%= @cocktail.name %></h2>
-<ul class="list-group">
-  <% @cocktail.doses.each do |dose| %>
-    <li class="list-group-item"><%= dose.description %> <p> <%= dose.ingredient.name %></p> </li>
-    <h5><%= link_to "Delete dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %></h5>
-  <% end %>
-</ul>
-<h6><%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail), class: "btn btn-secondary" %></h6>
+<h2><%= @cocktail.name %><small><%= link_to "🗑", cocktail_path(@cocktail), method: :delete, data: { confirm: "Delete #{@cocktail.name}?" } %></small></h2>
+<div class="row">
+  <div class="col-sm-8">
+    <ul class="list-group">
+      <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item"><%= dose.description %> <%= dose.ingredient.name %>
+        <%= link_to "Delete dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }%>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-sm-4">
+    <%= render "doses/new" %>
+  </div>
+</div>
+
 <h5><%= link_to "Back to cocktails", cocktails_path, class: "btn btn-primary" %></h5>
