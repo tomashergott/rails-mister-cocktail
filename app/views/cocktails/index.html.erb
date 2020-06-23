@@ -4,7 +4,7 @@
     <div class="col-4">
       <%= link_to cocktail_path(cocktail) do  %>
         <div class="card-product mb-4">
-          <%= image_tag "https://images.unsplash.com/photo-1566733971017-f6a46e832e95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80", alt: "alttext", height: 100 %>
+          <%= image_tag "https://source.unsplash.com/featured/?#{cocktail.name}", alt: "alttext", height: 100 %>
           <div class="card-product-infos">
           <p><%=cocktail.name%></p>
           </div>
